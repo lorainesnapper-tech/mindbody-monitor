@@ -1,0 +1,16 @@
+services:
+  - type: worker
+    name: mindbody-monitor
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "python monitor.py"
+    plan: free
+    envVars:
+      - key: GMAIL_ADDRESS
+        sync: false
+      - key: GMAIL_APP_PASSWORD
+        sync: false
+      - key: ALERT_PHONE
+        sync: false
+      - key: CHECK_INTERVAL
+        value: "300"
